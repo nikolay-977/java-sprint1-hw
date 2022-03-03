@@ -30,19 +30,7 @@ public class Main {
         while (userInput != 0) {
             // обработка разных случаев
             if (userInput == 1) {
-                System.out.println("Укажите месяц:");
-                System.out.println("0 - январь");
-                System.out.println("1 - февраль");
-                System.out.println("2 - март");
-                System.out.println("3 - апрель");
-                System.out.println("4 - май");
-                System.out.println("5 - июнь");
-                System.out.println("6 - июль");
-                System.out.println("7 - август");
-                System.out.println("8 - сентябрь");
-                System.out.println("9 - октябрь");
-                System.out.println("10 - ноябрь");
-                System.out.println("11 - декабрь");
+                printMonthList();
                 int numberOfMonth = scanner.nextInt();
 
                 while (numberOfMonth < 0 || numberOfMonth > 11) {
@@ -69,19 +57,7 @@ public class Main {
                 stepTracker.addMonthToData(numberOfMonth, numberOfDay, countSteps);
 
             } else if (userInput == 2) {
-                System.out.println("Укажите месяц:");
-                System.out.println("0 - январь");
-                System.out.println("1 - февраль");
-                System.out.println("2 - март");
-                System.out.println("3 - апрель");
-                System.out.println("4 - май");
-                System.out.println("5 - июнь");
-                System.out.println("6 - июль");
-                System.out.println("7 - август");
-                System.out.println("8 - сентябрь");
-                System.out.println("9 - октябрь");
-                System.out.println("10 - ноябрь");
-                System.out.println("11 - декабрь");
+                printMonthList();
                 int numberOfMonth = scanner.nextInt();
                 System.out.println("Статистика за " + monthList.get(numberOfMonth));
                 stepTracker.printStat(numberOfMonth);
@@ -94,8 +70,6 @@ public class Main {
                     newGoal = scanner.nextInt();
                 }
                 stepTracker.setGoal(newGoal);
-            } else if (userInput == 0) {
-                System.out.println("Выход");
             } else {
                 System.out.println("Извините, такой команды пока нет.");
             }
@@ -111,6 +85,12 @@ public class Main {
         System.out.println("2 - Напечатать статистику за определённый месяц");
         System.out.println("3 - Изменить цель по количеству шагов в день");
         System.out.println("0 - Выйти из приложения");
+    }
+
+    private static void printMonthList() {
+        for (int i = 0; i < monthList.size(); i++) {
+            System.out.println(i + " - " + monthList.get(i));
+        }
     }
 }
 
