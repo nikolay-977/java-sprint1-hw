@@ -99,18 +99,16 @@ public class StepTracker {
         int countDaysInSeries = 0;
         countStepsList.add(countDaysInSeries);
 
-        for (int i = 2; i < 31; i++) {
-
+        for (int i = 2; i < 32; i++) {
             int countStepsPreviewDay = dayToData.get(i - 1);
-            int countStepsCurrentDay = dayToData.get(i);
 
-            if (countStepsCurrentDay >= goal) {
-                if (countStepsCurrentDay >= countStepsPreviewDay) {
-                    countStepsList.add(++countDaysInSeries);
-                } else {
-                    countDaysInSeries = 0;
-                }
+            if (countStepsPreviewDay >= goal) {
+                countDaysInSeries++;
+            } else {
+                countDaysInSeries = 0;
             }
+
+            countStepsList.add(countDaysInSeries);
         }
 
         return countStepsList.stream().max(Integer::compare).get();
